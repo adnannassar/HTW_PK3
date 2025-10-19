@@ -1,5 +1,7 @@
 package Uebungen.Uebung_001.AudioAufgabe.Muster_001_mit_Vererbung;
 
+import Uebungen.Uebung_001.AudioAufgabe.Abgabe.AudioDevice;
+
 public class Radio extends AudioDevice {
     private double frequency;
 
@@ -10,7 +12,6 @@ public class Radio extends AudioDevice {
 
     public Radio(boolean isOn, int volume, double frequency) {
         super(isOn, volume);
-        // check Frequency
         setFrequency(frequency);
     }
 
@@ -38,14 +39,19 @@ public class Radio extends AudioDevice {
     }
 
     public static double stationNameToFrequency(String stationName) {
-        if (stationName.equals("New Radio")) {
-            return 88.9;
-        } else if (stationName.equals("Pop Radio")) {
-            return 98.2;
-        } else if (stationName.equals("Classic Radio")) {
-            return 103.4;
-        } else {
+        if (stationName == null) {
             return 0.0;
+        } else {
+            if (stationName.equals("News Radio")) {
+                return 88.9;
+            } else if (stationName.equals("Pop Radio")) {
+                return 98.2;
+            } else if (stationName.equals("Classic Radio")) {
+                return 103.4;
+            } else {
+                return 0.0;
+            }
         }
+
     }
 }

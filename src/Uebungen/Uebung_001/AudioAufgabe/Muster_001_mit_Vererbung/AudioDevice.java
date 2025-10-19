@@ -5,9 +5,11 @@ public class AudioDevice {
     private int volume;
 
     public AudioDevice() {
+        this.isOn = true;
+        this.volume = 20;
     }
 
-    public AudioDevice(boolean isOn, int volume) {
+    public AudioDevice (boolean isOn, int volume) {
         this.isOn = isOn;
         if (volume >= 0 && volume <= 100) {
             this.volume = volume;
@@ -32,14 +34,12 @@ public class AudioDevice {
         if (volume < 100) {
             this.volume++;
         }
-
     }
 
     public void volumeDown() {
         if (volume > 0) {
             this.volume--;
         }
-
     }
 
     public int getVolume() {

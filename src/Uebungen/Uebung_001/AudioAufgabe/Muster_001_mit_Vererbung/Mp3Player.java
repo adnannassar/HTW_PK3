@@ -1,5 +1,7 @@
 package Uebungen.Uebung_001.AudioAufgabe.Muster_001_mit_Vererbung;
 
+import Uebungen.Uebung_001.AudioAufgabe.Abgabe.AudioDevice;
+
 public class Mp3Player extends AudioDevice {
     private boolean isPlaying;
 
@@ -26,13 +28,15 @@ public class Mp3Player extends AudioDevice {
     }
 
     @Override
+    public void switchOff() {
+        super.switchOff();
+        this.isPlaying = false;
+    }
+
+    @Override
     public String toString() {
-        String status;
-        if (isOn()) {
-            status = "On";
-        } else {
-            status = "Off";
-        }
-        return "Mp3Player [is Playing = " + isPlaying + ", volume = " + getVolume() + ", is " + status + "]";
+        String playToken = isPlaying ? "isplaying" : "notplaying";
+        String powerToken = isOn() ? "ison" : "isoff";
+        return "mp3player[" + playToken + ".volume=" + getVolume() + "." + powerToken + "]";
     }
 }
