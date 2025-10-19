@@ -42,7 +42,6 @@ public class Person {
         this.nachname = nachname;
     }
 
-    //
     public int getAlter() {
         return alter;
     }
